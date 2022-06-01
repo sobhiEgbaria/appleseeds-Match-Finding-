@@ -20,8 +20,8 @@ import template10 from "../img/template10.jpg";
 import template11 from "../img/template11.jpg";
 
 class MatchFindingApp extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   state = {
     img: [
@@ -99,7 +99,7 @@ class MatchFindingApp extends Component {
   };
 
   handelStart = () => {
-    if (this.state.imgIndex == 0)
+    if (this.state.imgIndex === 0)
       this.setState({ imgIndex: this.state.imgIndex + 1 });
   };
 

@@ -4,8 +4,8 @@ import "../MatchFindingApp.css";
 import "./likeButton.css";
 
 class LikeButton extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   render() {

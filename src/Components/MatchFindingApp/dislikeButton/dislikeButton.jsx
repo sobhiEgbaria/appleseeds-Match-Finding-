@@ -3,8 +3,8 @@ import MatchFindingApp from "../MatchFindingApp";
 import "../MatchFindingApp.css";
 
 class DislikeButton extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   render() {
