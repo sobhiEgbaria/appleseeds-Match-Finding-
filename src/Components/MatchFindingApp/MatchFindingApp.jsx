@@ -52,7 +52,7 @@ class MatchFindingApp extends Component {
       {
         img: template5,
 
-        description: "if you are a pet fan you will know",
+        description: "if you are a pet fan you will know it ",
       },
       {
         img: template6,
@@ -103,23 +103,22 @@ class MatchFindingApp extends Component {
       this.setState({ imgIndex: this.state.imgIndex + 1 });
   };
 
-  handelLike = () => {
-    if (this.state.imgIndex > 0 && this.state.imgIndex <= 10) {
-      this.setState({
-        imgIndex: this.state.imgIndex + 1,
-        likeCounter: this.state.likeCounter + 1,
-      });
-    } else if (this.state.imgIndex == 11) this.finalScreen();
-  };
-
-  handelDislike = () => {
-    console.log(this.state.imgIndex);
-    if (this.state.imgIndex > 0 && this.state.imgIndex <= 10) {
+  handelInput = (type) => {
+    if (this.state.imgIndex <= 10) {
+      if (type === "like") {
+        this.setState({
+          imgIndex: this.state.imgIndex + 1,
+          likeCounter: this.state.likeCounter + 1,
+        });
+        return;
+      }
       this.setState({
         imgIndex: this.state.imgIndex + 1,
         dislikeCounter: this.state.dislikeCounter + 1,
       });
-    } else if (this.state.imgIndex == 11) this.finalScreen();
+      return;
+    }
+    this.finalScreen();
   };
 
   finalScreen = () => {
@@ -133,7 +132,7 @@ class MatchFindingApp extends Component {
       <>
         <div className="container">
           <LikeButton
-            handelLike={this.handelLike}
+            handelLike={() => this.handelInput("like")}
             likeCounter={this.state.likeCounter}
           />
 
@@ -145,7 +144,7 @@ class MatchFindingApp extends Component {
 
           <DislikeButton
             dislikeCounter={this.state.dislikeCounter}
-            handelDislike={this.handelDislike}
+            handelDislike={() => this.handelInput("dislike")}
           />
         </div>
       </>
